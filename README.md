@@ -10,11 +10,7 @@ Un mini-jeu **Tic Tac Toe** (morpion) développé avec **Angular 17** en utilisa
 - Partie contre une **IA aléatoire**
 - Gestion de la victoire, du match nul et de la fin de partie
 - Possibilité de **rejouer ou changer de pion sans recharger** la page
-- Interface utilisateur **moderne**, **responsive** et **mode sombre**
-- Architecture prévue pour facilement :
-  - changer la **taille de la grille** (3x3, 4x4, 5x5…)
-  - adapter la **logique de victoire** (aligner 4 symboles, etc.)
-
+- Choix de la **taille de la grille** (3x3, 4x4, 5x5)
 ---
 
 
