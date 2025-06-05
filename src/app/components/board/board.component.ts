@@ -15,13 +15,6 @@ export class BoardComponent {
 
   @Output() playCell = new EventEmitter<{ x: number; y: number }>();
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('Board reçu :', this.board);
-    if (changes['board'] && this.board) {
-      this.columns = `repeat(${this.board.length}, 1fr)`;
-    }
-  }
-
   handleClick(x: number, y: number) {
     this.playCell.emit({ x, y });
   }

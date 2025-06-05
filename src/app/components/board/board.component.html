@@ -1,14 +1,6 @@
-<div
-  class="grid"
-  [style.gridTemplateColumns]="columns"
->
-  <div
-    class="cell"
-    *ngFor="let item of flatBoard"
-    (click)="handleClick(item.x, item.y)"
-    [class.winning]="isWinningCell(item.x, item.y)"
-  >
+<div class="grid" [style.gridTemplateColumns]="'repeat(' + board.length + ', 1fr)'">
+  <div class="cell" *ngFor="let item of flatBoard" (click)="handleClick(item.x, item.y)"
+    [class.winning]="isWinningCell(item.x, item.y)">
     <app-cell [value]="item.cell"></app-cell>
-    
   </div>
 </div>
