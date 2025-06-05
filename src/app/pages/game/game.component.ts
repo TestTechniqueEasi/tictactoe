@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BoardComponent } from '../../components/board/board.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AiService } from '../../services/ai.service';
 
 
 @Component({
@@ -12,9 +13,11 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent {
+
+  constructor(private aiService: AiService) {}
+
   size: number = 3;
   alignToWin = 3;
-  readonly sizes = [3, 4, 5];
   selectedSize = 3;
   board: string[][] = [];
   status: 'init' | 'playing' | 'won' | 'draw' = 'init';
@@ -23,7 +26,7 @@ export class GameComponent {
   currentPlayer: 'X' | 'O' = 'X';
   winner: 'X' | 'O' | null = null;
   winningCells: { x: number, y: number }[] = [];
-
+  readonly sizes = [3, 4, 5];
 
   startGame(choice: 'X' | 'O') {
     this.winningCells = [];
@@ -36,7 +39,6 @@ export class GameComponent {
     this.board = Array.from({ length: this.size }, () => Array(this.size).fill(''));
     if (this.currentPlayer === this.ai) this.aiMove();
   }
-
 
   play(x: number, y: number) {
     if (this.status !== 'playing') return;
@@ -62,19 +64,12 @@ export class GameComponent {
   aiMove() {
     if (this.status !== 'playing') return;
 
-    const emptyCells: { x: number, y: number }[] = [];
-    for (let x = 0; x < this.size; x++) {
-      for (let y = 0; y < this.size; y++) {
-        if (this.board[x][y] === '') emptyCells.push({ x, y });
-      }
-    }
-
-    if (emptyCells.length === 0) {
+    const move = this.aiService.getRandomMove(this.board);
+    if (!move) {
       this.status = 'draw';
       return;
     }
 
-    const move = emptyCells[Math.floor(Math.random() * emptyCells.length)];
     this.board[move.x][move.y] = this.ai;
 
     if (this.checkWinner(this.ai)) {
