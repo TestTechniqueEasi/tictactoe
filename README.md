@@ -1,59 +1,52 @@
-# Tictactoe
+# Tic Tac Toe
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
+Un mini-jeu **Tic Tac Toe** (morpion) développé avec **Angular 17** en utilisant les **standalone components**, dans le cadre d’un exercice technique.
 
-## Development server
+---
 
-To start a local development server, run:
+## Fonctionnalités
+
+- Choix du pion (❌ ou ⭕) avant de commencer la partie
+- Partie contre une **IA aléatoire**
+- Gestion de la victoire, du match nul et de la fin de partie
+- Possibilité de **rejouer ou changer de pion sans recharger** la page
+- Interface utilisateur **moderne**, **responsive** et **mode sombre**
+- Architecture prévue pour facilement :
+  - changer la **taille de la grille** (3x3, 4x4, 5x5…)
+  - adapter la **logique de victoire** (aligner 4 symboles, etc.)
+
+---
+
+##  Stack technique
+
+- Angular 17 (Standalone Components)
+- TypeScript
+- SCSS
+- Angular CLI
+- Architecture modulaire (`Game`, `Board`, `Cell`)
+
+---
+
+##  Lancer l’application en local
+
+1. **Cloner le projet :**
+
+```bash
+git clone https://github.com/<TON-USERNAME-RANDOM>/tictactoe.git
+cd tictactoe
+```
+
+2. **Installer les dépendances :**
+
+```bash
+npm install
+```
+
+3. **Lancer l'application :**
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Enfin, ouvre [http://localhost:4200](http://localhost:4200) dans ton navigateur.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

@@ -1,0 +1,49 @@
+<div class="container">
+  <h1>Tic Tac Toe</h1>
+
+  <div *ngIf="status === 'init'" class="start">
+    <h2>Personnalise ta partie</h2>
+
+    <div class="grid-size">
+      <label for="size">Taille de la grille :</label>
+      <select id="size" [(ngModel)]="selectedSize">
+        <option *ngFor="let s of sizes" [value]="s">{{ s }} x {{ s }}</option>
+      </select>
+    </div>
+
+    <div class="choice-buttons">
+      <button class="symbol-card" (click)="startGame('X')">
+        <span>❌</span>
+        <small>Jouer avec les croix</small>
+      </button>
+
+      <button class="symbol-card" (click)="startGame('O')">
+        <span>⭕</span>
+        <small>Jouer avec les ronds</small>
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="status !== 'init'" class="board">
+    <p class="current-player">
+      C'est au tour de <strong>{{ currentPlayer === 'X' ? '❌' : '⭕' }}</strong>
+    </p>
+    <app-board
+      [board]="board"
+      [winningCells]="winningCells"
+      (playCell)="play($event.x, $event.y)"
+    ></app-board>
+  </div>
+
+  <div *ngIf="status === 'won'" class="result">
+    <p>🎉 Le joueur {{ winner }} a gagné !</p>
+    <button (click)="resetGame()">Rejouer</button>
+    <button (click)="backToStart()">Changer de pion</button>
+  </div>
+
+  <div *ngIf="status === 'draw'" class="result">
+    <p>🤝 Match nul !</p>
+    <button (click)="resetGame()">Rejouer</button>
+    <button (click)="backToStart()">Changer de pion</button>
+  </div>
+</div>
