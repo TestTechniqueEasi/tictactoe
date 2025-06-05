@@ -17,15 +17,6 @@ Un mini-jeu **Tic Tac Toe** (morpion) développé avec **Angular 17** en utilisa
 
 ---
 
-##  Stack technique
-
-- Angular 17 (Standalone Components)
-- TypeScript
-- SCSS
-- Angular CLI
-- Architecture modulaire (`Game`, `Board`, `Cell`)
-
----
 
 ##  Lancer l’application en local
 
