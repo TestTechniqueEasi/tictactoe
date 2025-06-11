@@ -28,7 +28,4 @@ export class BoardComponent {
       row.map((cell, y) => ({ cell, x, y }))
     );
   }
-
-  columns: string = '';
-
 }
